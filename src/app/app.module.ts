@@ -9,6 +9,7 @@ import { CrearAlumnoComponent } from './components/crear-alumno/crear-alumno.com
 import { ModificarAlumnoComponent } from './components/modificar-alumno/modificar-alumno.component';
 import { appRoutingProvider, routing } from './app.routing';
 import { provideHttpClient } from '@angular/common/http';
+import { ServiceAlumnos } from './services/service.alumnos';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { provideHttpClient } from '@angular/common/http';
     ModificarAlumnoComponent,
   ],
   imports: [BrowserModule, routing, FormsModule],
-  providers: [appRoutingProvider, provideHttpClient()],
+  providers: [appRoutingProvider, provideHttpClient(), ServiceAlumnos],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
