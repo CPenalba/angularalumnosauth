@@ -1,1 +1,51 @@
-<p>crear-alumno works!</p>
+<div>
+  <h1>Crear alumno</h1>
+  <hr />
+  <form #createForm="ngForm" (submit)="createAlumno()">
+    <label>Id alumno: </label>
+    <input
+      type="number"
+      name="cajaid"
+      #cajaid
+      class="form-control"
+      disabled
+    /><br />
+    <label>Nombre: </label>
+    <input
+      type="text"
+      name="cajanombre"
+      #cajanombre
+      class="form-control"
+    /><br />
+    <label>Apellidos: </label>
+    <input
+      type="text"
+      name="cajaapellidos"
+      #cajaapellidos
+      class="form-control"
+    /><br />
+    <label>Imagen: </label>
+    <input
+      type="text"
+      name="cajaimagen"
+      #cajaimagen
+      class="form-control"
+    /><br />
+    <label>Activo: </label>
+    <input
+      type="number"
+      name="cajaactivo"
+      #cajaactivo
+      class="form-control"
+    /><br />
+    <label>Id curso: </label>
+    <input
+      type="number"
+      name="cajaidCurso"
+      #cajaidCurso
+      class="form-control"
+    /><br />
+    <hr />
+    <button class="btn btn-outline-success">Crear alumno</button>
+  </form>
+</div>

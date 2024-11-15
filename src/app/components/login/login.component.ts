@@ -1,41 +1,28 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Login } from '../../models/login';
-import { ServiceAlumnos } from '../../services/service.alumnos';
 import { Router } from '@angular/router';
-import { environment } from '../../../environments/environment.development';
+import { ServiceAlumnos } from '../../services/service.alumnos';
+import { Login } from '../../models/login';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent implements OnInit {
-  @ViewChild('cajausername') cajaUsername!: ElementRef;
-  @ViewChild('cajapassword') cajaPassword!: ElementRef;
-  public login!: Login;
+export class LoginComponent {
+  @ViewChild('cajanombre') cajanombre!: ElementRef;
+  @ViewChild('cajacont') cajacont!: ElementRef;
 
-  constructor(private _service: ServiceAlumnos, private _router: Router) {}
+  constructor(private _router: Router, private _service: ServiceAlumnos) {}
 
-  hacerLogin(): void {
-    var username = this.cajaUsername.nativeElement.value;
-    var password = this.cajaPassword.nativeElement.value;
+  login(): void {
+    let nom = this.cajanombre.nativeElement.value;
+    let cont = this.cajacont.nativeElement.value;
 
-    this.login = new Login(username, password);
-    this._service.login(this.login).subscribe(
-      (response) => {
-        environment.token = response.response;
-        console.log(environment.token);
-        this._router.navigate(['/crear']);
-      },
-      () => {
-        alert(
-          'Usuario o contraseña incorrectos, por favor intente nuevamente.'
-        );
-      }
-    );
-  }
-
-  ngOnInit(): void {
-    environment.token = '';
+    let user = new Login(nom, cont);
+    this._service.getToken(user).then((response) => {
+      const token = response;
+      localStorage.setItem('token', token);
+      this._router.navigate(['/alumnos']);
+    });
   }
 }

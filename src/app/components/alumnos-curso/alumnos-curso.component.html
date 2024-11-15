@@ -1,0 +1,27 @@
+<div>
+  <h1>Curso: {{ id }}</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Id alumno</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Imagen</th>
+        <th>Activo</th>
+        <th>Id curso</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (alum of alumnos; track alum) {
+      <tr>
+        <td>{{ alum.idAlumno }}</td>
+        <td>{{ alum.nombre }}</td>
+        <td>{{ alum.apellidos }}</td>
+        <td><img :src="{{ alum.imagen }}" width="150px" height="150px" /></td>
+        <td>{{ alum.activo }}</td>
+        <td>{{ alum.idCurso }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,18 +1,16 @@
 <div>
-  <h1>Login</h1>
+  <h1>Iniciar Sesión</h1>
   <hr />
-  <form #loginForm="ngForm">
-    <label>userName</label>
-    <input type="text" name="cajausername" #cajausername class="form-control" />
-    <br />
-    <label>password:</label>
+  <form #loginForm="ngForm" (submit)="login()">
+    <label>UserName: </label>
     <input
-      type="password"
-      name="cajapassword"
-      #cajapassword
+      type="text"
+      name="cajanombre"
+      #cajanombre
       class="form-control"
-    />
-    <br />
-    <button class="btn btn-dark" (click)="hacerLogin()">Login</button>
+    /><br />
+    <label>Password: </label>
+    <input type="password" name="cajacont" #cajacont class="form-control" /><br />
+    <button class="btn btn-danger">Login</button>
   </form>
 </div>

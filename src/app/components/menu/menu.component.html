@@ -1,49 +1,54 @@
-<nav
-  class="navbar navbar-expand-sm navbar-dark bg-danger"
-  aria-label="Third navbar example"
->
-  <div class="container-fluid">
-    <img
-      src="https://img.freepik.com/vector-gratis/vista-frontal-escuela-japonesa-diseno-plano_23-2148646802.jpg"
-      width="80px"
-      height="80px"
-    />
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarsExample03"
-      aria-controls="navbarsExample03"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarsExample03">
-      <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-        <li class="nav-item">
-          <a class="nav-link active" [routerLink]="['/']"> Login </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/crear']"> Crear alumnos </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/modificar']">
-            Modificar alumnos
-          </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Cursos
-          </a>
-          <ul class="dropdown-menu"></ul>
-        </li>
-      </ul>
+<div *ngIf="sesion">
+  <nav
+    class="navbar navbar-expand-sm navbar-dark bg-dark"
+    aria-label="Third navbar example"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/alumnos']">Lista alumnos</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarsExample03"
+        aria-controls="navbarsExample03"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+          <li class="nav-item" *ngIf="sesion">
+            <a class="nav-link" [routerLink]="['/create']">Crear alumno</a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="sesion">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >Cursos</a
+            >
+            <ul class="dropdown-menu" *ngIf="sesion">
+              <li *ngFor="let curso of cursos">
+                <a
+                  class="dropdown-item"
+                  [routerLink]="['/alumnoscurso/' + curso]"
+                  >{{ curso }}</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item" *ngIf="sesion">
+            <a
+              class="btn btn-danger"
+              [routerLink]="['/']"
+              (click)="cerrarSesion()"
+              >Cerrar sesion</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
