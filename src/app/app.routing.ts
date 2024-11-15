@@ -5,6 +5,7 @@ import { CrearAlumnoComponent } from './components/crear-alumno/crear-alumno.com
 import { AlumnosCursoComponent } from './components/alumnos-curso/alumnos-curso.component';
 import { DetallesComponent } from './components/detalles/detalles.component';
 import { AlumnosComponent } from './components/alumnos/alumnos.component';
+import { EliminarAlumnoComponent } from './components/eliminar-alumno/eliminar-alumno.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -12,6 +13,7 @@ const appRoutes: Routes = [
   { path: 'detalles/:id', component: DetallesComponent },
   { path: 'alumnoscurso/:id', component: AlumnosCursoComponent },
   { path: 'create', component: CrearAlumnoComponent },
+  { path: 'delete/:id', component: EliminarAlumnoComponent },
 ];
 
 export const appRoutingProvider: any[] = [];

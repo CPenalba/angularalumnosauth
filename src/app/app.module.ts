@@ -13,6 +13,7 @@ import { ServiceAlumnos } from './services/service.alumnos';
 import { AlumnosCursoComponent } from './components/alumnos-curso/alumnos-curso.component';
 import { AlumnosComponent } from './components/alumnos/alumnos.component';
 import { DetallesComponent } from './components/detalles/detalles.component';
+import { EliminarAlumnoComponent } from './components/eliminar-alumno/eliminar-alumno.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DetallesComponent } from './components/detalles/detalles.component';
     AlumnosCursoComponent,
     AlumnosComponent,
     DetallesComponent,
+    EliminarAlumnoComponent,
   ],
   imports: [BrowserModule, routing, FormsModule],
   providers: [appRoutingProvider, provideHttpClient(), ServiceAlumnos],

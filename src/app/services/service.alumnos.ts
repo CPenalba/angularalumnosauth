@@ -47,4 +47,11 @@ export class ServiceAlumnos {
     const headers = { Authorization: `Bearer ${token}` };
     return axios.get(url, { headers }).then((response) => response.data);
   }
+
+  deleteAlumno(idAlumno: number): Promise<any> {
+    const token = localStorage.getItem('token');
+    const url = `${environment.urlApiAlumnos}/api/alumnos/deletealumnotoken/${idAlumno}`;
+    const headers = { Authorization: `Bearer ${token}` };
+    return axios.delete(url, { headers }).then((response) => response.data);
+  }
 }
