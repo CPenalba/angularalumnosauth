@@ -40,4 +40,11 @@ export class ServiceAlumnos {
       .post(url, alumno, { headers })
       .then((response) => response.data);
   }
+
+  findAlumnoById(idAlumno: number): Promise<any> {
+    const token = localStorage.getItem('token');
+    const url = `${environment.urlApiAlumnos}/api/alumnos/findalumnotoken/${idAlumno}`;
+    const headers = { Authorization: `Bearer ${token}` };
+    return axios.get(url, { headers }).then((response) => response.data);
+  }
 }
